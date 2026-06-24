@@ -102,6 +102,26 @@ function kcs_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Contact Form 7 shortcode (paste the form's shortcode here to switch the
+	// booking form over to CF7; leave blank to use the built-in form).
+	$wp_customize->add_setting(
+		'kcs_cf7_shortcode',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'kcs_cf7_shortcode',
+		array(
+			'label'       => __( 'Contact Form 7 shortcode', 'kate-craig-speaks' ),
+			'description' => __( 'Paste the CF7 shortcode (e.g. [contact-form-7 id="abc123" title="Booking"]) to use Contact Form 7 for the booking form. Leave blank to keep the built-in form.', 'kate-craig-speaks' ),
+			'section'     => 'kcs_speaking',
+			'type'        => 'text',
+		)
+	);
+
 	// Event date/time for the countdown (local time, ISO-ish).
 	$wp_customize->add_setting(
 		'kcs_event_datetime',

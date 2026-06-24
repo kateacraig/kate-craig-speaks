@@ -128,6 +128,85 @@ select:focus-visible, textarea:focus-visible {
 }
 
 /* ============================================================
+   Contact Form 7 — make CF7 output match the built-in form
+   ============================================================ */
+.kc-cf7 .wpcf7-form-control-wrap { display: block; width: 100%; }
+
+.kc-cf7 input.wpcf7-form-control,
+.kc-cf7 select.wpcf7-form-control,
+.kc-cf7 textarea.wpcf7-form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  color: var(--fg);
+  font-weight: 400;
+  font-size: 15px;
+}
+.kc-cf7 textarea.wpcf7-form-control { resize: vertical; min-height: 118px; }
+
+/* Submit button mirrors the brand button. */
+.kc-cf7 input.wpcf7-submit,
+.kc-cf7 button.wpcf7-submit {
+  width: auto;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  padding: 16px 30px;
+  border: none;
+  border-radius: var(--btn-radius);
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.kc-cf7 input.wpcf7-submit:hover,
+.kc-cf7 button.wpcf7-submit:hover { opacity: .92; }
+
+/* Validation + response messages, on-brand. */
+.kc-cf7 .wpcf7-not-valid { border-color: var(--accent) !important; }
+.kc-cf7 .wpcf7-not-valid-tip {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.kc-cf7 .wpcf7-response-output {
+  margin: 20px 0 0 !important;
+  padding: 14px 16px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  font-size: 14px;
+  color: var(--fg);
+}
+.kc-cf7 .wpcf7-spinner { margin: 0 0 0 12px; }
+
+/* Lay out the form so the Cloudflare Turnstile box sits on the same row as the
+   submit button — submit left, Turnstile right, vertically centered ("even").
+   CF7 inserts Turnstile at the top of the form by default; flex order moves it
+   down beside the button. */
+.kc-cf7 .wpcf7-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.kc-cf7 .wpcf7-form > .kc-form,
+.kc-cf7 .wpcf7-form > label,
+.kc-cf7 .wpcf7-form > .wpcf7-response-output { width: 100%; }
+.kc-cf7 .wpcf7-form > .kc-form { order: 1; }
+.kc-cf7 .wpcf7-form > label    { order: 2; }            /* Message field */
+.kc-cf7 .wpcf7-form > div[style*="margin-top:24px"] {   /* submit button row */
+  order: 3;
+  margin-right: auto;
+}
+.kc-cf7 .wpcf7-form > .cf-turnstile {                    /* Turnstile box */
+  order: 4;
+  margin: 24px 0 0 auto;
+}
+.kc-cf7 .wpcf7-form > .wpcf7-response-output { order: 5; }
+
+/* ============================================================
    Header logo (horizontal "Voice Lockup")
    ============================================================ */
 .kc-logo { transition: opacity .2s ease; }

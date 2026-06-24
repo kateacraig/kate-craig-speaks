@@ -65,6 +65,9 @@ function kcs_assets() {
 			'eventDateTime' => kcs_get_option( 'kcs_event_datetime', '2026-06-26T18:00:00' ),
 		)
 	);
+
+	// Contact Form 7 success-panel handling (no-ops when CF7 isn't present).
+	wp_enqueue_script( 'kcs-contact-cf7', get_template_directory_uri() . '/assets/js/contact-cf7.js', array(), KCS_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'kcs_assets' );
 
@@ -114,3 +117,4 @@ function kcs_hero_subheading() {
 require_once get_template_directory() . '/inc/content-data.php';
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/form-handler.php';
+require_once get_template_directory() . '/inc/cf7.php';
