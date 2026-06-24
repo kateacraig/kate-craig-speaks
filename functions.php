@@ -114,6 +114,41 @@ function kcs_hero_subheading() {
 	return kcs_get_option( 'kcs_hero_subheading', 'Kate Craig is a speaker, author, and movement-builder whose talks empower audiences to organize, lead, and build something better.' );
 }
 
+/**
+ * Open Graph / Twitter Card tags so social shares use the brand logo card
+ * (instead of whatever image a platform scrapes off the page, e.g. the TEDx
+ * graphic). Skipped when a dedicated SEO plugin is managing these tags.
+ */
+function kcs_social_meta() {
+	if ( defined( 'WPSEO_VERSION' ) || class_exists( 'RankMath' ) || function_exists( 'aioseo' ) ) {
+		return;
+	}
+
+	$image = get_template_directory_uri() . '/assets/images/og-image.png';
+	$name  = get_bloginfo( 'name' );
+	$title = wp_get_document_title();
+	$desc  = get_bloginfo( 'description', 'display' );
+	if ( '' === trim( (string) $desc ) ) {
+		$desc = 'Public speaking for leaders, organizers, and communities ready to move.';
+	}
+
+	echo "\n";
+	echo '<meta property="og:type" content="website">' . "\n";
+	printf( '<meta property="og:site_name" content="%s">' . "\n", esc_attr( $name ) );
+	printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( $title ) );
+	printf( '<meta property="og:description" content="%s">' . "\n", esc_attr( $desc ) );
+	printf( '<meta property="og:url" content="%s">' . "\n", esc_url( home_url( '/' ) ) );
+	printf( '<meta property="og:image" content="%s">' . "\n", esc_url( $image ) );
+	echo '<meta property="og:image:width" content="1200">' . "\n";
+	echo '<meta property="og:image:height" content="630">' . "\n";
+	printf( '<meta property="og:image:alt" content="%s">' . "\n", esc_attr( $name ) );
+	echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+	printf( '<meta name="twitter:title" content="%s">' . "\n", esc_attr( $title ) );
+	printf( '<meta name="twitter:description" content="%s">' . "\n", esc_attr( $desc ) );
+	printf( '<meta name="twitter:image" content="%s">' . "\n", esc_url( $image ) );
+}
+add_action( 'wp_head', 'kcs_social_meta', 5 );
+
 require_once get_template_directory() . '/inc/content-data.php';
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/form-handler.php';

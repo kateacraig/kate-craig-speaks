@@ -127,6 +127,12 @@ select:focus-visible, textarea:focus-visible {
   .kc-3img { grid-template-columns:1fr !important; }
 }
 
+/* Phones only: drop the hero portrait (kate-craig-1-bg.png) so the hero
+   section collapses to just the text and is shorter on small screens. */
+@media (max-width:767px) {
+  .kc-split > div:first-child { display: none !important; }
+}
+
 /* ============================================================
    Contact Form 7 — make CF7 output match the built-in form
    ============================================================ */
