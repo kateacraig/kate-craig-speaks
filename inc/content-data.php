@@ -87,3 +87,43 @@ function kcs_get_testimonials() {
 
 	return apply_filters( 'kcs_testimonials', $testimonials );
 }
+
+/**
+ * Other businesses / organizations (the "More from Kate" cards).
+ *
+ * 'logo' is a filename in assets/images/. If the file is missing, the
+ * template renders an on-brand placeholder instead of a broken image.
+ * Set 'coming_soon' => true to show a non-clickable "Coming soon" card.
+ *
+ * @return array
+ */
+function kcs_get_businesses() {
+	$businesses = array(
+		array(
+			'name'        => 'Kate Craig Consulting',
+			'url'         => 'https://katecraigconsulting.com/',
+			'logo'        => 'logo-kate-craig-consulting.png',
+			'desc'        => 'Digital strategy, web development, and marketing for mission-driven clients.',
+			'coming_soon' => false,
+		),
+		array(
+			'name'        => 'Kate Craig Writes',
+			'url'         => 'https://katecraigwrites.com/',
+			'logo'        => '', // No logo yet — renders the placeholder.
+			'desc'        => 'Books, poetry, and op-eds. A home for Kate\'s writing.',
+			'coming_soon' => true, // Site not built yet; flip to false once live.
+		),
+		array(
+			'name'        => 'Harvesting Democracy PAC',
+			'url'         => 'https://harvestingdemocracypac.org/',
+			'logo'        => 'logo-harvesting-democracy-pac.png',
+			'desc'        => 'Growing progressive leadership in rural Tennessee.',
+			'coming_soon' => false,
+			// This logo file has wide transparent padding; scale it up so the
+			// mark reads at a similar size to the others. Tweak as needed.
+			'logo_scale'  => 1.5,
+		),
+	);
+
+	return apply_filters( 'kcs_businesses', $businesses );
+}

@@ -130,3 +130,53 @@ select:focus-visible, textarea:focus-visible {
 /* Keep the WP admin bar from covering sticky header for logged-in users */
 .admin-bar header.kc-header { top: 32px; }
 @media (max-width:782px) { .admin-bar header.kc-header { top: 46px; } }
+
+/* ============================================================
+   "More from Kate" — other businesses / organizations
+   3 across on desktop, 1 across on phones.
+   ============================================================ */
+.kc-biz {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 44px;
+}
+@media (max-width:760px) { .kc-biz { grid-template-columns: 1fr; } }
+
+.kc-biz-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 18px 22px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+/* Lift only the clickable (anchor) cards on hover/focus. */
+a.kc-biz-card:hover,
+a.kc-biz-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+}
+.kc-biz-soon { opacity: .9; }
+
+/* White well keeps dark-on-transparent logos legible in any theme. */
+.kc-logo-well {
+  background: #fff;
+  border-radius: calc(var(--radius) - 4px);
+  height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  overflow: hidden; /* clip any scaled-up logo neatly to the well */
+}
+.kc-logo-well img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}

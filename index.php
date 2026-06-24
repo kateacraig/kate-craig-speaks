@@ -22,5 +22,6 @@ get_template_part( 'template-parts/topics' );
 get_template_part( 'template-parts/about' );
 get_template_part( 'template-parts/proof' );
 get_template_part( 'template-parts/contact' );
+get_template_part( 'template-parts/businesses' );
 
 get_footer();
