@@ -17,7 +17,7 @@ $kcs_ticket_url = kcs_ticket_url();
 	<footer style="background:var(--bg);border-top:1px solid rgba(255,255,255,0.5);padding:54px 24px 40px;transition:background .45s">
 		<div class="kc-foot" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;align-items:start">
 			<div>
-				<div style="display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:19px"><span style="width:30px;height:30px;border-radius:9px;background:var(--grad);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px">K</span>Kate Craig</div>
+				<div style="display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:19px"><span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;padding:2px;background:var(--grad);flex:none;display:block"><span style="width:100%;height:100%;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center"><span style="font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:-0.04em;color:var(--fg)">K<span style="background:linear-gradient(135deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent">C</span></span></span></span>Kate Craig</div>
 				<p style="font-size:15px;line-height:1.6;color:var(--fg-soft);margin:14px 0 0;max-width:340px">Public speaking for leaders, organizers, and communities ready to move.</p>
 				<a href="mailto:<?php echo esc_attr( $kcs_email ); ?>" style="display:inline-block;margin-top:16px;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--blue);text-decoration:none"><?php echo esc_html( $kcs_email ); ?></a>
 				<div class="kc-social">

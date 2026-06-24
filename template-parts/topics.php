@@ -15,7 +15,7 @@ $kcs_topics = kcs_get_topics();
 <section id="topics" style="scroll-margin-top:84px;background:var(--bg);padding:84px 24px;transition:background .45s;border-top:1px solid rgba(255,255,255,0.5)">
 	<div style="max-width:1180px;margin:0 auto">
 		<div style="max-width:640px">
-			<div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:var(--eyebrow-spacing);text-transform:uppercase;font-weight:700;color:var(--green)"><span style="width:22px;height:2px;background:var(--green)"></span>What Kate Speaks About</div>
+			<div style="display:inline-flex;align-items:center;font-size:12.5px;letter-spacing:var(--eyebrow-spacing);text-transform:uppercase;font-weight:700;color:var(--green)">What Kate Speaks About</div>
 			<h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-0.015em;margin:14px 0 0;color:var(--fg);text-wrap:balance">Talks and workshops that turn ideas into community action</h2>
 			<p style="font-size:17px;line-height:1.6;color:var(--fg-soft);margin:16px 0 0">Each is available as a keynote, workshop, training, or panel, and tailored to your audience. People leave able to apply what they learned where they live and work.</p>
 		</div>

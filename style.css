@@ -127,6 +127,15 @@ select:focus-visible, textarea:focus-visible {
   .kc-3img { grid-template-columns:1fr !important; }
 }
 
+/* ============================================================
+   Header logo (horizontal "Voice Lockup")
+   ============================================================ */
+.kc-logo { transition: opacity .2s ease; }
+.kc-logo:hover,
+.kc-logo:focus-visible { opacity: .85; }
+/* On very narrow screens, keep just the icon so it never crowds the CTA. */
+@media (max-width:480px) { .kc-logo-text { display: none; } }
+
 /* Keep the WP admin bar from covering sticky header for logged-in users */
 .admin-bar header.kc-header { top: 32px; }
 @media (max-width:782px) { .admin-bar header.kc-header { top: 46px; } }
