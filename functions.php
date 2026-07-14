@@ -55,17 +55,6 @@ function kcs_assets() {
 	// Main stylesheet (theme header + tokens + responsive rules).
 	wp_enqueue_style( 'kcs-style', get_stylesheet_uri(), array( 'kcs-fonts' ), KCS_VERSION );
 
-	// Countdown + small UX behaviours.
-	wp_enqueue_script( 'kcs-countdown', get_template_directory_uri() . '/assets/js/countdown.js', array(), KCS_VERSION, true );
-	wp_localize_script(
-		'kcs-countdown',
-		'KCS_DATA',
-		array(
-			// ISO-ish local datetime used by the countdown target.
-			'eventDateTime' => kcs_get_option( 'kcs_event_datetime', '2026-06-26T18:00:00' ),
-		)
-	);
-
 	// Contact Form 7 success-panel handling (no-ops when CF7 isn't present).
 	wp_enqueue_script( 'kcs-contact-cf7', get_template_directory_uri() . '/assets/js/contact-cf7.js', array(), KCS_VERSION, true );
 }
@@ -101,8 +90,15 @@ function kcs_get_option( $key, $default = '' ) {
 /**
  * Convenience accessors for the most-edited fields (with sane defaults).
  */
-function kcs_ticket_url() {
-	return esc_url( kcs_get_option( 'kcs_ticket_url', 'https://www.ted.com/tedx/events/67032' ) );
+function kcs_video_url() {
+	return esc_url( kcs_get_option( 'kcs_video_url', 'https://www.youtube.com/watch?v=BMOp7yQCyWg' ) );
+}
+function kcs_youtube_id() {
+	$url = kcs_get_option( 'kcs_video_url', 'https://www.youtube.com/watch?v=BMOp7yQCyWg' );
+	if ( preg_match( '~(?:youtu\.be/|v=|/embed/|/shorts/)([A-Za-z0-9_-]{11})~', (string) $url, $m ) ) {
+		return $m[1];
+	}
+	return 'BMOp7yQCyWg';
 }
 function kcs_contact_email() {
 	return sanitize_email( kcs_get_option( 'kcs_contact_email', 'kate@katecraigconsulting.com' ) );

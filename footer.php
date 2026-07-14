@@ -9,8 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$kcs_email      = kcs_contact_email();
-$kcs_ticket_url = kcs_ticket_url();
+$kcs_email = kcs_contact_email();
 ?>
 
 	<!-- FOOTER -->
@@ -48,7 +47,7 @@ $kcs_ticket_url = kcs_ticket_url();
 				<div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:700">Book</div>
 				<div style="display:flex;flex-direction:column;gap:9px;margin-top:14px;font-size:15px">
 					<a href="#contact" style="text-decoration:none;color:var(--fg-soft)">Invite Kate to speak</a>
-					<a href="<?php echo esc_url( $kcs_ticket_url ); ?>" target="_blank" rel="noopener" style="text-decoration:none;color:var(--fg-soft)">Get TEDx tickets</a>
+					<a href="#tedx" style="text-decoration:none;color:var(--fg-soft)">Watch the TEDx talk</a>
 				</div>
 			</div>
 		</div>

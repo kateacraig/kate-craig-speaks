@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero (split-screen) + TEDx countdown strip.
+ * Hero (split-screen).
  *
  * @package KateCraigSpeaks
  */
@@ -9,8 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$kcs_img        = get_template_directory_uri() . '/assets/images';
-$kcs_ticket_url = kcs_ticket_url();
+$kcs_img = get_template_directory_uri() . '/assets/images';
 ?>
 <!-- HERO : MOMENTUM (split screen) -->
 <section style="position:relative;overflow:hidden">
@@ -27,23 +26,8 @@ $kcs_ticket_url = kcs_ticket_url();
 				<p style="font-size:clamp(17px,1.7vw,20px);line-height:1.55;max-width:520px;margin:22px 0 0;color:rgba(255,255,255,0.92)"><?php echo esc_html( kcs_hero_subheading() ); ?></p>
 				<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px">
 					<a href="#contact" style="text-decoration:none;background:#fff;color:#0a1830;padding:15px 26px;border-radius:999px;font-weight:700;font-size:15.5px;box-shadow:0 14px 30px -12px rgba(0,0,0,0.4)">Invite Kate to Speak</a>
-					<a href="<?php echo esc_url( $kcs_ticket_url ); ?>" target="_blank" rel="noopener" style="text-decoration:none;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.55);color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:15.5px;backdrop-filter:blur(6px)">Get TEDx Tickets &rarr;</a>
+					<a href="#tedx" style="text-decoration:none;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.55);color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:15.5px;backdrop-filter:blur(6px)">Watch the TEDx Talk &rarr;</a>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- COUNTDOWN STRIP -->
-	<div style="background:#000;color:#fff;border-top:1px solid #fff;border-bottom:1px solid #fff">
-		<div style="max-width:1180px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:22px">
-			<div style="flex:1;min-width:230px">
-				<div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#7fb3ff;font-weight:700">Her first TEDx talk</div>
-				<div style="font-family:var(--font-display);font-weight:700;font-size:24px;margin-top:4px;color:#fff">&ldquo;The Courage to Call In&rdquo;</div>
-			</div>
-			<div style="display:flex;gap:10px">
-				<div style="text-align:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:11px 14px;min-width:62px"><div id="kc-cd-days" style="font-family:var(--font-display);font-weight:700;font-size:28px;color:#fff;line-height:1">--</div><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8aa0c4;margin-top:3px">Days</div></div>
-				<div style="text-align:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:11px 14px;min-width:62px"><div id="kc-cd-hours" style="font-family:var(--font-display);font-weight:700;font-size:28px;color:#fff;line-height:1">--</div><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8aa0c4;margin-top:3px">Hrs</div></div>
-				<div style="text-align:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:11px 14px;min-width:62px"><div id="kc-cd-mins" style="font-family:var(--font-display);font-weight:700;font-size:28px;color:#fff;line-height:1">--</div><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8aa0c4;margin-top:3px">Min</div></div>
-				<div style="text-align:center;background:var(--grad);border-radius:12px;padding:11px 14px;min-width:62px"><div id="kc-cd-secs" style="font-family:var(--font-display);font-weight:700;font-size:28px;color:#fff;line-height:1">--</div><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-top:3px">Sec</div></div>
 			</div>
 		</div>
 	</div>

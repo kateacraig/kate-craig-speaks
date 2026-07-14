@@ -2,8 +2,8 @@
 /**
  * Theme Customizer settings.
  *
- * Surfaces the most frequently edited fields (hero copy, ticket link,
- * contact email, TEDx event date/time for the countdown) in
+ * Surfaces the most frequently edited fields (hero copy, TEDx video,
+ * contact email, CF7 shortcode) in
  * Appearance → Customize → "Kate Craig Speaking".
  *
  * @package KateCraigSpeaks
@@ -65,21 +65,22 @@ function kcs_customize_register( $wp_customize ) {
 		)
 	);
 
-	// TEDx ticket URL.
+	// TEDx talk video URL (YouTube).
 	$wp_customize->add_setting(
-		'kcs_ticket_url',
+		'kcs_video_url',
 		array(
-			'default'           => 'https://www.ted.com/tedx/events/67032',
+			'default'           => 'https://www.youtube.com/watch?v=BMOp7yQCyWg',
 			'sanitize_callback' => 'esc_url_raw',
 			'transport'         => 'refresh',
 		)
 	);
 	$wp_customize->add_control(
-		'kcs_ticket_url',
+		'kcs_video_url',
 		array(
-			'label'   => __( 'TEDx ticket URL', 'kate-craig-speaks' ),
-			'section' => 'kcs_speaking',
-			'type'    => 'url',
+			'label'       => __( 'TEDx video URL (YouTube)', 'kate-craig-speaks' ),
+			'description' => __( 'The talk embedded in the TEDx section. Paste a YouTube watch or share link.', 'kate-craig-speaks' ),
+			'section'     => 'kcs_speaking',
+			'type'        => 'url',
 		)
 	);
 
@@ -122,23 +123,5 @@ function kcs_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Event date/time for the countdown (local time, ISO-ish).
-	$wp_customize->add_setting(
-		'kcs_event_datetime',
-		array(
-			'default'           => '2026-06-26T18:00:00',
-			'sanitize_callback' => 'sanitize_text_field',
-			'transport'         => 'refresh',
-		)
-	);
-	$wp_customize->add_control(
-		'kcs_event_datetime',
-		array(
-			'label'       => __( 'TEDx event date & time', 'kate-craig-speaks' ),
-			'description' => __( 'Used by the countdown. Format: YYYY-MM-DDTHH:MM:SS (e.g. 2026-06-26T18:00:00).', 'kate-craig-speaks' ),
-			'section'     => 'kcs_speaking',
-			'type'        => 'text',
-		)
-	);
 }
 add_action( 'customize_register', 'kcs_customize_register' );
